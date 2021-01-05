@@ -75,6 +75,12 @@ def get_type():
             "name": t_shirt.name,
         })
     return jsonify({"data":datasend})
+@app.route("/upload")
+def download():
+    file = request.files.get("file")
+    filename = secure_filename(file.filename)
+    file.save(os.path.join(project_dir+"\\static",filename))
+    return "success"
 @app.route("/download")
 def download():
     path=os.path.join(project_dir+"\\static","appuploaddata-win32-x64.zip")
