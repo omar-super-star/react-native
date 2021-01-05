@@ -74,7 +74,7 @@ def get_type():
             "id":t_shirt.id,
             "name": t_shirt.name,
         })
-    return jsonify(datasend)
+    return jsonify({"data":datasend})
 
 
 
