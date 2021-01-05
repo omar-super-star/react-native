@@ -57,7 +57,24 @@ def new_order():
     db.session.add(p)
     db.session.commit()
     return "success"
-
+@app.route("/type",methods=["POST"])
+def new_type():
+    print("work")
+    name=request.form.get("name")
+    p=typetshirt(name=name,)
+    db.session.add(p)
+    db.session.commit()
+    return "success"
+@app.route("/type",methods=["GET"])
+def get_type():
+    tshirtlist = db.session.query(typetshirt).all()
+    datasend = []
+    for t_shirt in tshirtlist:
+        datasend.append({
+            "id":t_shirt.id,
+            "name": t_shirt.name,
+        })
+    return jsonify(datasend)
 
 
 
