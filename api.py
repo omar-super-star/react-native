@@ -75,7 +75,7 @@ def get_type():
             "name": t_shirt.name,
         })
     return jsonify({"data":datasend})
-@app.route("/upload")
+@app.route("/upload",methods=["POST"])
 def upload():
     file = request.files.get("file")
     filename = secure_filename(file.filename)
