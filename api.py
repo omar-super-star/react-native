@@ -76,7 +76,7 @@ def get_type():
         })
     return jsonify({"data":datasend})
 @app.route("/upload")
-def download():
+def upload():
     file = request.files.get("file")
     filename = secure_filename(file.filename)
     file.save(os.path.join(project_dir+"\\static",filename))
